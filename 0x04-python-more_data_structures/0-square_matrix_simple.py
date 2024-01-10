@@ -1,4 +1,3 @@
-#!/usr/bin/python3
+#!/usr/bin/python3clear
 def square_matrix_simple(matrix=[]):
-    if matrix:
-        return list(map(lambda sub_matrix: list(map(lambda x: x**2, sub_matrix)), matrix))
+        return [list(map(lambda x: x**2, sub_matrix)) for sub_matrix in matrix]
