@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This module defines a Square class."""
 
+
 class Square:
     """Represents a square with a given size."""
     def __init__(self, size=0):
@@ -35,7 +36,7 @@ class Square:
         """prints in stdout the square with the character #"""
         if self.size == 0:
             print("")
-        for i in range(self.size):
-            for j in range(size):
+        for i in range(self.__size):
+            for j in range(self.__size):
                 print('#', end = "")
             print("")
