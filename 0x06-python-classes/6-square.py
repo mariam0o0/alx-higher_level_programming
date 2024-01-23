@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This module defines a Square class."""
 
+
 class Square:
     """Represents a square with a given size."""
     def __init__(self, size=0, position=(0, 0)):
@@ -44,19 +45,11 @@ class Square:
             raise TypeError("position must be a tuple of 2 positive integers")
         if value[0] < 0 or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value
 
     def area(self):
         """Calculates and returns the area of the square."""
         return self.__size ** 2
-
-    def my_print(self):
-        """prints in stdout the square with the character #"""
-        if self.size == 0:
-            print("")
-        for i in range(self.size):
-            for j in range(size):
-                print('#', end = "")
-            print("")
 
     def my_print(self):
             """Prints the square using the character '#'."""
