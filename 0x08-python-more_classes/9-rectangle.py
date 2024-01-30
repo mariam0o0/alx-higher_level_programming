@@ -6,7 +6,9 @@ Module for a class Rectangle
 
 
 class Rectangle:
-    """Class of a Rectangle"""
+    """
+    Class of a Rectangle
+    """
 
     number_of_instances = 0
     print_symbol = "#"
@@ -67,7 +69,7 @@ class Rectangle:
         return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
-        """deleted"""
+        """Destructor"""
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
 
