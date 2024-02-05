@@ -9,28 +9,30 @@ Import the class:
 
     >>> MyList = __import__('1-my_list').MyList
 
+Now test it:
+
     >>> my_list = MyList()
-    >>> my_list.append(1)
-    >>> my_list.append(4)
-    >>> my_list.append(2)
+    >>> my_list.append(10)
+    >>> my_list.append(7)
+    >>> my_list.append(14)
+    >>> my_list.append(21)
     >>> my_list.append(3)
-    >>> my_list.append(5)
 
     >>> my_list.print_sorted()
-    [1, 2, 3, 4, 5]
+    [3, 7, 10, 14, 21]
 
     >>> print(my_list)
-    [1, 4, 2, 3, 5]
+    [10, 7, 14, 21, 3]
 
     >>> my_list.print_sorted() == sorted(my_list)
-    True
+    False  # Values are different now
 
-    >>> my_list = MyList("hello")
+    >>> my_list = MyList("world")
     >>> my_list
-    ['h', 'e', 'l', 'l', 'o']
+    ['w', 'o', 'r', 'l', 'd']
 
     >>> my_list.print_sorted()
-    ['e', 'h', 'l', 'l', 'o']
+    ['d', 'l', 'o', 'r', 'w']
 
     >>> my_list = MyList()
     >>> print(my_list)
@@ -38,20 +40,20 @@ Import the class:
     >>> my_list.print_sorted()
     []
 
-    >>> my_list.append(3)
-    >>> my_list.append(2)
+    >>> my_list.append(8)
+    >>> my_list.append(17)
     >>> print(my_list)
-    [3, 2]
+    [8, 17]
     >>> my_list.print_sorted()
-    [2, 3]
+    [8, 17]
 
-    >>> my_list.append(-12)
+    >>> my_list.append(-5)
     >>> my_list.print_sorted()
-    [-12, 2, 3]
+    [-5, 8, 17]
 
-    >>> my_list = MyList([1, 2, 3])
+    >>> my_list = MyList([4, 8, 12])
     >>> sorted_list = my_list.print_sorted()
     >>> print(my_list)
-    [1, 2, 3]
+    [4, 8, 12]
     >>> my_list == sorted_list
-    True
+    False
