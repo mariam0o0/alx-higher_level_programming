@@ -40,15 +40,15 @@ Now test it:
     []
 
     >>> my_list.append(3)
-    >>> my_list.append(2)
+    >>> my_list.append(1)
     >>> print(my_list)
-    [3, 2]
+    [3, 1]
     >>> my_list.print_sorted()
-    [2, 3]
+    [1, 3]
 
-    >>> my_list.append(-12)
+    >>> my_list.append(-8)
     >>> my_list.print_sorted()
-    [-12, 2, 3]
+    [-8, 1, 3]
 
     >>> my_list = MyList([1, 2, 3])
     >>> nlist = my_list.print_sorted()
