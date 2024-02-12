@@ -22,12 +22,12 @@ class Square(Rectangle):
 
     @property
     def size(self):
-        """Getter for size"""
+        """size getter"""
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Setter for size"""
+        """size setter"""
         self.validation('width', value)
         self.__size = value
         self.width = value
