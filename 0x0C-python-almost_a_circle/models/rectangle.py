@@ -83,3 +83,13 @@ class Rectangle(Base):
         """string representation"""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.x, self.y, self.width, self.height)
+
+    def update(self, *args, **kwargs):
+        """assigns an argument to each attribute"""
+        full = (self.id, self.width, self.height, self.x, self.y)
+        if args != ():
+            self.id, self.width, self.height, self.x, self.y = \
+                args + full[len(args):len(full)]
+        elif kwargs:
+            for (name, value) in kwargs.items():
+                setattr(self, name, value)
