@@ -3,6 +3,7 @@
 This module implements `base` class of all other classes in this project.
 """
 import json
+import os.path
 
 
 class Base:
@@ -50,18 +51,6 @@ class Base:
         return ins
 
     @classmethod
-    def load_from_file(cls):
-        """returns a list of instances"""
-        f_name = f"{cls.__name__}.json"
-        obj = []
-        with open(f_name, 'r') as file:
-            file_string = file.read().replace('\n', '')
-            data = cls.from_json_string(file_string)
-            for i in data:
-                obj.append(cls.create(**i))
-        return obj
-
-    @classmethod
     def save_to_file(cls, list_objs):
         """save to json file"""
         filename = cls.__name__ + ".json"
@@ -71,3 +60,12 @@ class Base:
                 text.append(item.to_dictionary())
         with open(filename, mode="w", encoding="utf-8") as file:
             return file.write(Base.to_json_string(text))
+
+    @classmethod
+    def load_from_file(cls):
+        """file to instances"""
+        if not os.path.exists(cls.__name__ + ".json"):
+            return []
+        with open(cls.__name__ + ".json", "r") as file:
+            data = cls.from_json_string(file.read())
+        return [cls.create(**i) for i in data]
