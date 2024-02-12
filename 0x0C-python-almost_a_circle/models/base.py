@@ -5,6 +5,7 @@ This module implements `base` class of all other classes in this project.
 import json
 import os.path
 import csv
+import turtle
 
 
 class Base:
