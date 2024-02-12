@@ -41,9 +41,11 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """create a new object"""
-        if cls.__name__ == "Rectangle" or cls.__name__ == "Square":
-            new = cls(10, 10)
+        """instance with all attributes already set"""
+        if cls.__name__ == "Rectangle":
+            new = cls(1, 1)
+        elif cls.__name__ == "Square":
+            new = cls(1, 1)
         new.update(**dictionary)
         return new
 
