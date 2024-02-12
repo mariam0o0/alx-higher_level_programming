@@ -61,11 +61,11 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """writes the JSON string representation of list"""
-        if list_objs is None:
-            list_objs = []
-        f_name = f"{cls.__name__}.json"
-        json_string = cls.to_json_string
-        ([obj.to_dictionary() for obj in list_objs])
-        with open(f_name, 'w') as file:
-            return file.write(json_string)
+        """save to json file"""
+        filename = cls.__name__ + ".json"
+        text = []
+        if list_objs is not None:
+            for item in list_objs:
+                text.append(item.to_dictionary())
+        with open(filename, mode="w", encoding="utf-8") as file:
+            return file.write(Base.to_json_string(text))
