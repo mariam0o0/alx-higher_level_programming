@@ -1,17 +1,14 @@
 #!/usr/bin/python3
-"""
-This module implements Base class of other classes in this project.
-"""
+"""Base model"""
 import json
 
 
 class Base:
-    """ The Base Class"""
-
+    """class for base"""
     __nb_objects = 0
-    
+
     def __init__(self, id=None):
-        """The Class init"""
+        """initialize base"""
         if id is not None:
             self.id = id
         else:
