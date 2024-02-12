@@ -15,3 +15,12 @@ class Rectangle(Base):
         self.height = height
         self.x = x
         self.y = y
+
+    def validation(self, name, value, condition=True):
+        """validate the value and type of attributes"""
+        if type(value) != int:
+            raise TypeError("{} must be an integer".format(name))
+        if condition and value <= 0:
+            raise ValueError("{} must be > 0".format(name))
+        if not condition and value < 0:
+            raise ValueError("{} must be >= 0".format(name))
