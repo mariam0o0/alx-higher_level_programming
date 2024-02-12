@@ -9,7 +9,7 @@ class Rectangle(Base):
     """The Rectangle Class"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """ The class init"""
+        """The class init"""
         super().__init__(id)
         self.width = width
         self.height = height
@@ -17,13 +17,13 @@ class Rectangle(Base):
         self.y = y
 
     def validation(self, name, value, condition=True):
-        """validate the value and type of attributes"""
+        """Validate the value and type of attributes"""
         if type(value) != int:
-            raise TypeError("{} must be an integer".format(name))
+            raise TypeError(f"{name} must be an integer")
         if condition and value <= 0:
-            raise ValueError("{} must be > 0".format(name))
+            raise ValueError(f"{name} must be > 0")
         if not condition and value < 0:
-            raise ValueError("{} must be >= 0".format(name))
+            raise ValueError(f"{name} must be >= 0")
 
     @property
     def width(self):
@@ -70,16 +70,15 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
-        """return the area of Rectangle instance"""
+        """Return the area of Rectangle instance"""
         return self.width * self.height
 
     def __str__(self):
-        """string representation"""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(
-            self.id, self.x, self.y, self.width, self.height)
+        """String representation"""
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
 
     def display(self):
-        """prints the Rectangle with the character #"""
+        """Print the Rectangle with the character #"""
         for _ in range(self.y):
             print()
         for _ in range(self.height):
@@ -87,19 +86,18 @@ class Rectangle(Base):
         print()
 
     def update(self, *args, **kwargs):
-        """assigns an argument to each attribute"""
+        """Assign an argument to each attribute"""
         full = (self.id, self.width, self.height, self.x, self.y)
         if args != ():
             self.id, self.width, self.height, self.x, self.y = \
-                args + full[len(args):len(full)]
+                args + full[len(args):]
         elif kwargs:
-            for (name, value) in kwargs.items():
+            for name, value in kwargs.items():
                 setattr(self, name, value)
 
     def to_dictionary(self):
-        """dictionary representation of a Rectangle"""
+        """Dictionary representation of a Rectangle"""
         return {
             'x': self.x, 'width': self.width, 'id': self.id,
             'height': self.height, 'y': self.y}
-
 
