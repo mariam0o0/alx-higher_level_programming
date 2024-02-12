@@ -58,4 +58,3 @@ class Base:
             for i in data:
                 obj.append(cls.create(**i))
         return obj
-
