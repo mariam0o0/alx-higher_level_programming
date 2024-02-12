@@ -86,3 +86,25 @@ class Base:
             writer = csv.writer(file)
             writer.writerows(rows)
         return filename
+
+    @classmethod
+    def draw(cls, rectangles, squares):
+        """Draws all the Rectangles and Squares"""
+        screen = turtle.Screen()
+        pen = turtle.Pen()
+        figures = rectangles + squares
+
+        for figure in figures:
+            pen.up()
+            pen.goto(figure.x, figure.y)
+            pen.down()
+            pen.forward(figure.width)
+            pen.right(90)
+            pen.forward(figure.height)
+            pen.right(90)
+            pen.forward(figure.width)
+            pen.right(90)
+            pen.forward(figure.height)
+            pen.right(90)
+
+        screen.exitonclick()
