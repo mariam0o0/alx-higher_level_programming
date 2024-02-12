@@ -4,6 +4,7 @@ This module implements `base` class of all other classes in this project.
 """
 import json
 import os.path
+import csv
 
 
 class Base:
@@ -69,3 +70,19 @@ class Base:
         with open(cls.__name__ + ".json", "r") as file:
             data = cls.from_json_string(file.read())
         return [cls.create(**i) for i in data]
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Save to CSV file"""
+        filename = cls.__name__ + ".csv"
+        fieldnames = []
+        rows = []
+        if list_objs is not None and len(list_objs) > 0:
+            fieldnames = list(list_objs[0].to_dictionary().keys())
+            rows.append(fieldnames)
+            for obj in list_objs:
+                rows.append(list(obj.to_dictionary().values()))
+        with open(filename, mode="w", newline="", encoding="utf-8") as file:
+            writer = csv.writer(file)
+            writer.writerows(rows)
+        return filename
