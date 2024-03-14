@@ -1,7 +1,7 @@
--- List all Comedy shows in 'hbtn_0d_tvshows'
+-- List all Comedy shows in hbtn_0d_tvshows
 SELECT tv_shows.title
 FROM tv_shows
-INNER JOIN tv_show_genres ON tv_shows.id = tv_show_genres.tv_show_id
-INNER JOIN tv_genres ON tv_show_genres.genre_id = tv_genres.id
-WHERE tv_genres.name = 'Comedy'
+INNER JOIN tv_show_genres a ON tv_shows.id = a.show_id
+INNER JOIN tv_genres b ON a.genre_id = b.id
+WHERE b.name = 'Comedy'
 ORDER BY tv_shows.title ASC;
