@@ -1,6 +1,6 @@
 # Python - Everything is object
 
-## Tasks :page_with_curl:
+## Tasks :
 
 * **0. Who am I?**
   * [0-answer.txt](./0-answer.txt): What function would you use to print the type of an object?
