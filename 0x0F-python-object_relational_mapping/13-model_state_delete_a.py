@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""deletes all State objects with a name containing the letter a"""
+"""Deletes all State with a name containing 'a' from database"""
 
 import sys
 from sqlalchemy import create_engine
